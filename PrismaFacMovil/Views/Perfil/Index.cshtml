@@ -1,0 +1,196 @@
+﻿@model Perfil
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor;
+<div class="loader-mask">
+    <div class="loader">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<!-- Preloader End -->
+<!-- Header Section Start -->
+<header id="top-navbar" class="top-navbar">
+    <div class="container">
+        <div class="top-navbar_full">
+
+            <div class="brookwood-txt d-flex align-items-center">
+                <p class="brookwood-txt">Perfil</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="navbar-boder"></div>
+</header>
+<section id="partner-page">
+    <div class="container">
+        <div class="check-page-top-content mt-16">
+            <div class="accordion-item border-0 mt-24">
+                <h2 class="accordion-header">
+                    <button class="accordion-button custom_icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordian2">
+                        <span style="color:#339A76">Datos de negocio</span>
+                    </button>
+                </h2>
+                <div id="accordian2" class="accordion-collapse collapse">
+                    <div class="accordion-body faq-answer">
+
+                        <form class="sign-in-form mt-32" id="FrmRegistro" asp-action="EditarEmisor" asp-controller="Perfil" method="post" enctype="multipart/form-data">
+                            <div class="form-sec">
+                                <label class="txt-lbl">Ruc</label><br>
+                                <input type="number" id="ruc" class="txt-input Ruc" name="Ruc" value="@Model.Ruc" readonly>
+                                <div id="validacionRuc" class="invalid-feedback has-validation">
+                                    Caracteres de ruc incorrectos
+                                </div>
+                                <div id="validacion001" class="invalid-feedback has-validation">
+                                    Formato de ruc 001 incorrecto
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="form-sec mt-16">
+                                <label class="txt-lbl">Razon Social</label><br>
+                                <input type="text" id="RazonSocial" class="txt-input RazonSocial" name="RazonSocial" value="@Model.RazonSocial" onkeyup="mayus(this);">
+                                <div id="validacionCamposRazonSocial" class="invalid-feedback has-validation">
+                                    Campos Vacios
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="form-sec mt-16">
+                                <label class="txt-lbl">Direccion</label><br>
+                                <input type="text" id="Direccion" class="txt-input Direccion" name="DireccionNegocio" value="@Model.DireccionMatriz">
+                                <div id="validacionCamposDireccion" class="invalid-feedback has-validation">
+                                    Campos Vacios
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="input-group has-validation form-sec mt-16 text-center">
+                                <input class="ValidacionFile" class="txt-lbl" asp-for="ArchivoFile" type="file" id="fileInput" onchange="validate_fileupload(this);" value="@Model.Archivo" />
+                                <label for="fileInput" class="labelFile">
+                                    <i class="fa-solid fa-download"></i>
+                                    Agregar firma
+                                </label>
+                                <div id="validationFormato" class="invalid-feedback has-validation">
+                                    Formato incorrecto ".p12"
+                                </div>
+                                <div id="validationArchivo" class="invalid-feedback has-validation">
+                                    Subir archivo
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="sign-up mt-32">
+                                <button class="btn-emisor" type="submit" id="btn-next">Guardar</button>
+                            </div>
+                        </form>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="checkoutpage-boder mt-16"></div>
+            <div class="accordion-item border-0 mt-24">
+                <h2 class="accordion-header">
+                    <button class="accordion-button custom_icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordian3">
+                        <span style="color:#339A76">Datos de usuario</span>
+                    </button>
+                </h2>
+                <div id="accordian3" class="accordion-collapse collapse">
+                    <div class="accordion-body faq-answer">
+
+                        <form class="sign-in-form mt-32" id="FrmUsuario" asp-action="EditarUsuarioEmisor" asp-controller="Perfil" method="post">
+                            <div class="form-sec">
+                                <label class="txt-lbl">Correo</label><br>
+                                <input type="text" id="Correo" name="Correo" class="txt-input Correo" value="@Model.Email">
+                                <div id="validacionCorreo" class="invalid-feedback has-validation">
+                                    Formato de correo incorrecto
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="form-sec mt-16">
+                                <label class="txt-lbl">Usuario</label><br>
+                                <input type="text" id="Usuario" name="NikUsuario" class="txt-input Usuario" value="@Model.NikUsuario" readonly>
+                                <div id="validacionUsuario" class="invalid-feedback has-validation">
+                                    Campos Vacios
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="form-sec mt-16">
+                                <label class="txt-lbl">Contraseña</label><br>
+                                <input type="password" id="Contrasena" name="Contrasena" value="@Model.Contrasenia"
+                                       class="txt-input Contrasena">
+                                <div id="validacionContracena" class="invalid-feedback has-validation">
+                                    Debe haber mayusculas y numeros
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="form-sec mt-16">
+                                <label class="txt-lbl">Confirmar Contraseña</label><br>
+                                <input type="password" id="ConfirmarContracena"
+                                       class="txt-input ConfirmarContracena">
+                                <div id="validacionConfirmarContracena" class="invalid-feedback has-validation">
+                                    Contraseñas no coinciden
+                                </div>
+                                <div class="form_bottom_boder"></div>
+                            </div>
+                            <div class="sign-up mt-32">
+                                <button class="btn-emisor" type="submit" id="">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="checkoutpage-boder mt-16"></div>
+            <div class="time-add-main-sec">
+                
+                <div class="time-add-main-sec-full">
+                    <div class="time-content-sec">
+                        <span style="color:#339A76">Establecimientos y sucursales</span>
+                    </div>
+                    <div class="time-icon-sec">
+                        <a href="javascript:void(0)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                    <rect width="24" height="24" fill="white" />
+                                </mask>
+                                <g mask="url(#mask0_1_2447)">
+                                    <path d="M8.91016 19.92L15.4302 13.4C16.2002 12.63 16.2002 11.37 15.4302 10.6L8.91016 4.08002" stroke="#666666" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="checkoutpage-boder mt-16"></div>
+            @if (Model.AplicaIva == true)
+            {
+                <div class="switch-sec mt-16">
+                    <div>
+                        <h3 class="app-switch-txt1">Iva</h3>
+                    </div>
+                    <div class="app-setting-switch">
+                        <label class="switch app-switch">
+                            <input type="checkbox" checked="" id="flexSwitch" onclick="flexSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+            }else
+            {
+                <div class="switch-sec mt-16">
+                    <div>
+                        <h3 class="app-switch-txt1">Iva</h3>
+                    </div>
+                    <div class="app-setting-switch">
+                        <label class="switch app-switch">
+                            <input type="checkbox" id="flexSwitch" onclick="flexSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+            }
+            
+        </div>
+    </div>
+</section>

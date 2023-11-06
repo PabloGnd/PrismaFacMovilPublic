@@ -1,0 +1,165 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor;
+@{
+    ViewData["Title"] = "Nuevo Producto";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrookWood</title>
+    <link rel="icon" href="assets/images/favicon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/media-query.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+</head>
+
+<body>
+    <div class="site_content">
+        <!-- Preloader Start -->
+        <div class="loader-mask">
+            <div class="loader">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+        <!-- Header Section Start -->
+        <header id="top-navbar" class="top-navbar">
+            <div class="container">
+                <div class="top-navbar_full">
+                    <div class="back-btn">
+                        <a asp-controller="Registro" asp-action="Ingreso" class="nav-link btn-prev">
+                            <img src="/images/forget-password-screen/back-btn.svg" alt="back-btn-img">
+                        </a>
+                    </div>
+                    <div class="top-navbar-title">
+                        <p>Seleccione el Cliente</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="navbar-boder"></div>
+        </header>
+        <!-- Header Section End -->
+        <!-- About Us Details Section Start -->
+
+        <section id="partner-page">
+            <div class="container">
+                <div class="serachbar-homepage2 mt-24">
+                    <div class="input-group ">
+                        <span class="input-group-text search-iconn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.9395 1.9313C5.98074 1.9313 1.94141 5.97063 1.94141 10.9294C1.94141 15.8881 5.98074 19.9353 10.9395 19.9353C13.0575 19.9353 15.0054 19.193 16.5449 17.9606L20.293 21.7067C20.4821 21.888 20.7347 21.988 20.9967 21.9854C21.2587 21.9827 21.5093 21.8775 21.6947 21.6924C21.8801 21.5073 21.9856 21.2569 21.9886 20.9949C21.9917 20.7329 21.892 20.4802 21.7109 20.2908L17.9629 16.5427C19.1963 15.0008 19.9395 13.0498 19.9395 10.9294C19.9395 5.97063 15.8982 1.9313 10.9395 1.9313ZM10.9395 3.93134C14.8173 3.93134 17.9375 7.05153 17.9375 10.9294C17.9375 14.8072 14.8173 17.9352 10.9395 17.9352C7.06162 17.9352 3.94141 14.8072 3.94141 10.9294C3.94141 7.05153 7.06162 3.93134 10.9395 3.93134Z" fill="#7D8FAB"></path>
+                            </svg>
+                        </span>
+                        <input type="number" placeholder="Buscar cliente" id="txtBuscarCliente" class="form-control search-text Cliente">
+                        
+                        <div id="validacionClienteExiste" class="invalid-feedback">
+                            No existe el cliente
+                        </div>
+                    </div>
+                </div>
+                <div id="DetalleCliente">
+
+                </div>  
+                <div class="partner-page-full mt-24" id="Cliente">
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="partner-page-details  mt-16 ClienteSelec" IdCliente="@item.IdCliente" Identificacion="@item.Identificacion" TipoIdentificacion="@item.TipoIdentificacion" Nombre="@item.Nombre1" Apellido="@item.Apellido1" Direccion="@item.DireccionCliente" Correo="@item.Correo" Telefono="@item.Telefono">
+                            <div class="partner-page-desciption">
+                                <div class="partner-page-img-sec bg-blck">
+                                    <h3 class="round-txt-part-page">@item.InicialApellido@item.InicialNombre</h3>
+                                </div>
+                                <div class="partner-page-content">
+                                    <div class="partner-page-content-full">
+                                        <h4 class="offcial-title-part-page">@item.Nombre1 @item.Apellido1</h4>
+                                        <h5 class="offcial-subtitle-part-page">@item.Identificacion</h5>
+                                    </div>
+                                   </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-2 index-continuar-factura">
+                        <a  class="nav-link" id="ContinuarProducto">Continuar</a>
+                    </div>
+                    <div class="col-2 index-factura text-center" id="NombreCliente">
+                        
+                    </div>
+                    
+
+                </div>
+                </div>
+            </div>
+        </section>
+    <div class="modal" tabindex="-1" id="SeleccionarCliente">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <svg class="bi flex-shrink-0 me-2 text-warning" width="50" height="50" role="img" aria-label="warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                    </div>
+                    <div class=" row alert  justify-content-center" role="alert">
+                        <div class="col-auto">
+                            <h5>
+                                Selecciona un cliente.
+                            </h5>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="border-color:#0CC084" data-bs-dismiss="modal">Cerrar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- About Us Details Section End -->
+
+    <script src="~/js/jquery-min-3.6.0.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/Factura.js"></script>
+</body>
+
+</html>

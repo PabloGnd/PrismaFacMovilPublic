@@ -1,0 +1,73 @@
+﻿@model List<Notificacion>
+<div class="loader-mask">
+    <div class="loader">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- Preloader End -->
+<!-- Header Section Start -->
+<header id="top-navbar" class="top-navbar">
+    <div class="container">
+        <div class="top-navbar_full">
+
+            <div class="brookwood-txt d-flex align-items-center">
+                <p class="brookwood-txt">PrismaFac</p>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-boder"></div>
+</header>
+<head>
+    <section id="notification-page">
+        <div class="container">
+            @foreach (var item in Model)
+            {
+                if (item.Tipo == "URGENTE")
+                {
+                    <div class="notification-page-full mt-24">
+                        <h1 class="d-none">@item.Titulo</h1>
+                        <div class="notification-page-sec">
+                            <div class="partner-page-img-sec bg-red col-3">
+                                <h3 class="round-txt-part-page"></h3>
+                            </div>
+                            <div class="notification-content">
+                                <p class="noti-title">@item.Descripcion</p>
+                                <p class="noti-subtitle mt-8">@item.Fecha</p>
+                            </div>
+                        </div>
+                    </div>
+                } else if (item.Tipo == "EDUCATIVO")
+                {
+                    <div class="notification-page-full mt-24">
+                        <h1 class="d-none">@item.Titulo</h1>
+                        <div class="notification-page-sec">
+                            <div class="partner-page-img-sec bg-green col-3">
+                                <h3 class="round-txt-part-page"></h3>
+                            </div>
+                            <div class="notification-content">
+                                <p class="noti-title">@item.Descripcion</p>
+                                <p class="noti-subtitle mt-8">@item.Fecha</p>
+                            </div>
+                        </div>
+                    </div>
+                } else if (item.Tipo == "INFORMATIVO")
+                {
+                    <div class="notification-page-full mt-24">
+                        <h1 class="d-none">@item.Titulo</h1>
+                        <div class="notification-page-sec">
+                            <div class="partner-page-img-sec bg-blck col-3">
+                                <h3 class="round-txt-part-page"></h3>
+                            </div>
+                            <div class="notification-content">
+                                <p class="noti-title">@item.Descripcion</p>
+                                <p class="noti-subtitle mt-8">@item.Fecha</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            
+        </div>
+    </section>
+</head>

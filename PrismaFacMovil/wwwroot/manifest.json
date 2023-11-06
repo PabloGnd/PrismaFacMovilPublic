@@ -1,0 +1,17 @@
+{
+  "name": "PrismaFac",
+  "short_name": "Prisma Facturación",
+  "description": "Aplicación para facturación electrónica de productos y servicios profesioanales",
+  "icons": [
+    {
+      "src": "/images/prisma/prismaIcon.jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/prisma/prismaIcon.jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "/"
+}

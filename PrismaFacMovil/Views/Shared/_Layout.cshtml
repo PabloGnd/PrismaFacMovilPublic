@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BrookWood</title>
+	<link rel="icon" href="assets/images/favicon/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="~/css/all.min.css" asp-append-version="true">
+	<link rel="stylesheet" href="~/css/slick.css" asp-append-version="true">
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true">
+	<link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+	<link rel="stylesheet" href="~/css/media-query.css" asp-append-version="true">
+	
+</head>
+
+<body>
+	<div class="site_content">
+		
+		<div class="menu-btn d-flex align-items-center posicion">
+			<a href="#offcanvasExample" data-bs-toggle="offcanvas"><img src="/images/profile-page/menu-icon.svg" alt="menu-icon"></a>
+		</div>
+
+		<div class="menu-sidebar details">
+			<div class="offcanvas offcanvas-start custom-offcanvas-noti" id="offcanvasExample">
+				<div class="offcanvas-header custom-header-offcanva">
+					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<div class="dropdown mt-3">
+						<h2 class="app-setting-title">PrismaFac</h2>
+						<div class="app-setting-page-full mt-24">
+							<div class="app-setting-top">
+
+								<a asp-controller="Factura" asp-action="Lista">
+									<div class="app-setting-menu-start mt-16">
+										<div class="menu-icon">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_403" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white" />
+												</mask>
+												<g mask="url(#mask0_1_403)">
+													<path d="M8.5 14.6667C8.5 15.9553 9.54467 17 10.8333 17H13C14.3807 17 15.5 15.8807 15.5 14.5C15.5 13.1193 14.3807 12 13 12H11C9.61929 12 8.5 10.8807 8.5 9.5C8.5 8.11929 9.61929 7 11 7H13.1667C14.4553 7 15.5 8.04467 15.5 9.33333M12 5.5V7M12 17V18.5M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</div>
+										<div class="menu-txt-app">
+											<h3 class="app-txt-title">Facturación</h3>
+										</div>
+									</div>
+									<div class="border-bottom-app mt-8"></div>
+								</a>
+
+								<a asp-controller="Producto" asp-action="Lista">
+									<div class="app-setting-menu-start mt-16">
+										<div class="menu-icon">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_4844" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white" />
+												</mask>
+												<g mask="url(#mask0_1_4844)">
+													<path d="M8.12602 14C8.57006 15.7252 10.1362 17 12 17C13.8638 17 15.4299 15.7252 15.874 14M11.0177 2.764L4.23539 8.03912C3.78202 8.39175 3.55534 8.56806 3.39203 8.78886C3.24737 8.98444 3.1396 9.20478 3.07403 9.43905C3 9.70352 3 9.9907 3 10.5651V17.8C3 18.9201 3 19.4801 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4801 21 18.9201 21 17.8V10.5651C21 9.9907 21 9.70352 20.926 9.43905C20.8604 9.20478 20.7526 8.98444 20.608 8.78886C20.4447 8.56806 20.218 8.39175 19.7646 8.03913L12.9823 2.764C12.631 2.49075 12.4553 2.35412 12.2613 2.3016C12.0902 2.25526 11.9098 2.25526 11.7387 2.3016C11.5447 2.35412 11.369 2.49075 11.0177 2.764Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+
+										</div>
+										<div class="menu-txt-app">
+											<h3 class="app-txt-title">Productos</h3>
+										</div>
+									</div>
+									<div class="border-bottom-app mt-8"></div>
+								</a>
+								<a asp-controller="Cliente" asp-action="Lista">
+									<div class="app-setting-menu-start mt-16">
+										<div class="menu-icon">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_394" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white" />
+												</mask>
+												<g mask="url(#mask0_1_394)">
+													<path d="M4 7C4 6.06812 4 5.60218 4.15224 5.23463C4.35523 4.74458 4.74458 4.35523 5.23463 4.15224C5.60218 4 6.06812 4 7 4H17C17.9319 4 18.3978 4 18.7654 4.15224C19.2554 4.35523 19.6448 4.74458 19.8478 5.23463C20 5.60218 20 6.06812 20 7M9 20H15M12 4V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</div>
+										<div class="menu-txt-app">
+											<h3 class="app-txt-title">Clientes</h3>
+										</div>
+									</div>
+									<div class="border-bottom-app mt-8"></div>
+								</a>
+								<a asp-controller="Factura" asp-action="ConsultaFactura">
+									<div class="app-setting-menu-start mt-16">
+										<div class="menu-icon">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_412" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white" />
+												</mask>
+												<g mask="url(#mask0_1_412)">
+													<path d="M22 11V8.2C22 7.0799 22 6.51984 21.782 6.09202C21.5903 5.71569 21.2843 5.40973 20.908 5.21799C20.4802 5 19.9201 5 18.8 5H5.2C4.0799 5 3.51984 5 3.09202 5.21799C2.71569 5.40973 2.40973 5.71569 2.21799 6.09202C2 6.51984 2 7.0799 2 8.2V11.8C2 12.9201 2 13.4802 2.21799 13.908C2.40973 14.2843 2.71569 14.5903 3.09202 14.782C3.51984 15 4.0799 15 5.2 15H11M12 10H12.005M17 10H17.005M7 10H7.005M19.25 17V15.25C19.25 14.2835 18.4665 13.5 17.5 13.5C16.5335 13.5 15.75 14.2835 15.75 15.25V17M12.25 10C12.25 10.1381 12.1381 10.25 12 10.25C11.8619 10.25 11.75 10.1381 11.75 10C11.75 9.86193 11.8619 9.75 12 9.75C12.1381 9.75 12.25 9.86193 12.25 10ZM17.25 10C17.25 10.1381 17.1381 10.25 17 10.25C16.8619 10.25 16.75 10.1381 16.75 10C16.75 9.86193 16.8619 9.75 17 9.75C17.1381 9.75 17.25 9.86193 17.25 10ZM7.25 10C7.25 10.1381 7.13807 10.25 7 10.25C6.86193 10.25 6.75 10.1381 6.75 10C6.75 9.86193 6.86193 9.75 7 9.75C7.13807 9.75 7.25 9.86193 7.25 10ZM15.6 21H19.4C19.9601 21 20.2401 21 20.454 20.891C20.6422 20.7951 20.7951 20.6422 20.891 20.454C21 20.2401 21 19.9601 21 19.4V18.6C21 18.0399 21 17.7599 20.891 17.546C20.7951 17.3578 20.6422 17.2049 20.454 17.109C20.2401 17 19.9601 17 19.4 17H15.6C15.0399 17 14.7599 17 14.546 17.109C14.3578 17.2049 14.2049 17.3578 14.109 17.546C14 17.7599 14 18.0399 14 18.6V19.4C14 19.9601 14 20.2401 14.109 20.454C14.2049 20.6422 14.3578 20.7951 14.546 20.891C14.7599 21 15.0399 21 15.6 21Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</div>
+										<div class="menu-txt-app">
+											<h3 class="app-txt-title">Facturas emitidas</h3>
+										</div>
+									</div>
+									<div class="border-bottom-app mt-8"></div>
+								</a>
+								<a asp-controller="Registro" asp-action="Index">
+									<div class="app-setting-menu-start mt-16">
+										<div class="menu-icon">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_367" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white" />
+												</mask>
+												<g mask="url(#mask0_1_367)">
+													<path d="M16 17L21 12M21 12L16 7M21 12H9M12 17C12 17.93 12 18.395 11.8978 18.7765C11.6204 19.8117 10.8117 20.6204 9.77646 20.8978C9.39496 21 8.92997 21 8 21H7.5C6.10218 21 5.40326 21 4.85195 20.7716C4.11687 20.4672 3.53284 19.8831 3.22836 19.1481C3 18.5967 3 17.8978 3 16.5V7.5C3 6.10217 3 5.40326 3.22836 4.85195C3.53284 4.11687 4.11687 3.53284 4.85195 3.22836C5.40326 3 6.10218 3 7.5 3H8C8.92997 3 9.39496 3 9.77646 3.10222C10.8117 3.37962 11.6204 4.18827 11.8978 5.22354C12 5.60504 12 6.07003 12 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</div>
+										<div class="menu-txt-app">
+											<h3 class="app-txt-title">Salir</h3>
+										</div>
+									</div>
+									<div class="border-bottom-app mt-8"></div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="dark-overlay"></div>
+			</div>
+		</div>
+			@RenderBody()
+		
+		
+		
+		
+		
+		<!-- Profile Details Section Start -->
+		<div id="bottom-navigation">
+			<div class="container">
+				<div class="home-navigation-menu">
+					<div class="row">
+						<div class="col-12">
+							<div class="bottom-panel nagivation-menu-wrap">
+								<ul class="sc-bottom-bar furniture-bottom-nav" id="furniture_navbar">
+									<li class="nav-menu-icon active">
+										<a  class="home-icon navigation-icons active">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_798" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white"/>
+												</mask>
+												<g mask="url(#mask0_1_798)">
+													<path d="M8.12602 14C8.57006 15.7252 10.1362 17 12 17C13.8638 17 15.4299 15.7252 15.874 14M11.0177 2.764L4.23539 8.03912C3.78202 8.39175 3.55534 8.56806 3.39203 8.78886C3.24737 8.98444 3.1396 9.20478 3.07403 9.43905C3 9.70352 3 9.9907 3 10.5651V17.8C3 18.9201 3 19.4801 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4801 21 18.9201 21 17.8V10.5651C21 9.9907 21 9.70352 20.926 9.43905C20.8604 9.20478 20.7526 8.98444 20.608 8.78886C20.4447 8.56806 20.218 8.39175 19.7646 8.03913L12.9823 2.764C12.631 2.49075 12.4553 2.35412 12.2613 2.3016C12.0902 2.25526 11.9098 2.25526 11.7387 2.3016C11.5447 2.35412 11.369 2.49075 11.0177 2.764Z" stroke="#0CC084" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</a>
+									</li>
+									<li class="nav-menu-icon">
+										<a asp-controller="Registro" asp-action="Ingreso" class="event-icon navigation-icons">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_793" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white"/>
+												</mask>
+												<g mask="url(#mask0_1_793)">
+													<path d="M16.1111 3C19.6333 3 22 6.3525 22 9.48C22 15.8138 12.1778 21 12 21C11.8222 21 2 15.8138 2 9.48C2 6.3525 4.36667 3 7.88889 3C9.91111 3 11.2333 4.02375 12 4.92375C12.7667 4.02375 14.0889 3 16.1111 3Z" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</g>
+											</svg>
+										</a>
+									</li>
+									<li class="nav-menu-icon nav-account-icon">
+										<a asp-controller="Notificacion" asp-action="Lista" class="notification-icon navigation-icons left-icon">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_778" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white"/>
+												</mask>
+												<g mask="url(#mask0_1_778)">
+													<path d="M12 6.43994V9.76994" stroke="#666666" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+													<path d="M12.0199 2C8.3399 2 5.3599 4.98 5.3599 8.66V10.76C5.3599 11.44 5.0799 12.46 4.7299 13.04L3.4599 15.16C2.6799 16.47 3.2199 17.93 4.6599 18.41C9.4399 20 14.6099 20 19.3899 18.41C20.7399 17.96 21.3199 16.38 20.5899 15.16L19.3199 13.04C18.9699 12.46 18.6899 11.43 18.6899 10.76V8.66C18.6799 5 15.6799 2 12.0199 2Z" stroke="#666666" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+													<path d="M15.3299 18.8201C15.3299 20.6501 13.8299 22.1501 11.9999 22.1501C11.0899 22.1501 10.2499 21.7701 9.64992 21.1701C9.04992 20.5701 8.66992 19.7301 8.66992 18.8201" stroke="#666666" stroke-width="2" stroke-miterlimit="10"/>
+												</g>
+											</svg>
+										</a>
+									</li>
+									<li class="nav-menu-icon nav-notifi-icon">
+										<a asp-controller="Perfil" asp-action="ObtenerPerfil" class="account-icon navigation-icons">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<mask id="mask0_1_772" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+													<rect width="24" height="24" fill="white"/>
+												</mask>
+												<g mask="url(#mask0_1_772)">
+													<path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21M16.5 7.5C16.5 9.98528 14.4853 12 12 12C9.51472 12 7.5 9.98528 7.5 7.5C7.5 5.01472 9.51472 3 12 3C14.4853 3 16.5 5.01472 16.5 7.5Z" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</g>
+											</svg>
+										</a>
+									</li>
+								</ul>
+								<a class="sc-nav-indicator" asp-controller="Factura" asp-action="Lista">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<mask id="mask0_1_786" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+											<rect width="24" height="24" fill="white"/>
+										</mask>
+										<g mask="url(#mask0_1_786)">
+											<path d="M2 2H3.74001C4.82001 2 5.67 2.93 5.58 4L4.75 13.96C4.61 15.59 5.89999 16.99 7.53999 16.99H18.19C19.63 16.99 20.89 15.81 21 14.38L21.54 6.88C21.66 5.22 20.4 3.87 18.73 3.87H5.82001" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M16.25 22C16.9404 22 17.5 21.4404 17.5 20.75C17.5 20.0596 16.9404 19.5 16.25 19.5C15.5596 19.5 15 20.0596 15 20.75C15 21.4404 15.5596 22 16.25 22Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M8.25 22C8.94036 22 9.5 21.4404 9.5 20.75C9.5 20.0596 8.94036 19.5 8.25 19.5C7.55964 19.5 7 20.0596 7 20.75C7 21.4404 7.55964 22 8.25 22Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M9 8H21" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+										</g>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!-- Profile Details Section End -->
+	</div>
+	<script src="~/js/jquery-min-3.6.0.js" asp-append-version="true"></script>
+	<script src="~/js/slick.min.js" asp-append-version="true"></script>
+	<script src="~/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+	<script src="~/js/modal.js" asp-append-version="true"></script>
+	<script src="~/js/custom.js" asp-append-version="true"></script>
+	<script src="~/js/Cliente.js" asp-append-version="true"></script>
+	<script src="~/js/Producto.js"asp-append-version="true"></script>
+	<script src="~/js/Registro.js"></script>
+	<script src="~/js/Perfil.js"></script>
+	<script src="~/js/General.js"></script>
+	<script src="~/js/Progress-circulo.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

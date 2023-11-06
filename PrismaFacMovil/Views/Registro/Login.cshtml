@@ -1,0 +1,129 @@
+﻿@model Usuario
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor;
+@{
+	ViewData["Title"] = "Home Page";
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BrookWood</title>
+	<link rel="icon" href="assets/images/favicon/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="~/css/all.min.css">
+	<link rel="stylesheet" href="~/css/slick.css">
+	<link rel="stylesheet" href="~/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/css/style.css">
+	<link rel="stylesheet" href="~/css/media-query.css">
+</head>
+<header id="top-navbar" class="top-navbar">
+	<div class="container">
+		<div class="top-navbar_full">
+			<div class="back-btn">
+				<a asp-controller="Registro" asp-action="Index" class="nav-link btn-prev">
+					<img src="/images/forget-password-screen/back-btn.svg" alt="back-btn-img">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="navbar-boder"></div>
+</header>
+<body>
+	@if (objAccesor.HttpContext.Session.GetInt32("Login") == 2)
+        {
+		<div class="modal" tabindex="-1" id="loginModal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <svg class="bi flex-shrink-0 me-2 text-warning" width="50" height="50" role="img" aria-label="warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                            </div>
+                            <div class=" row alert  justify-content-center" role="alert">
+                                <div class="col-auto">
+                                    <h5>
+                                        @objAccesor.HttpContext.Session.GetString("MensajeErrorLogin")
+                                    </h5>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+						<button type="button" class="btn" style="background-color:#0CC084" data-bs-dismiss="modal">Cerrar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+	<div class="site_content">
+		<!-- Preloader Start -->
+		<div class="loader-mask">
+			<div class="loader">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!-- Preloader End -->
+		<!-- SignIn Details  Start -->
+		<section id="sign-in-screen">
+			<div class="container">
+				<div class="sign-in-screen_full">
+					<div class="sign-in-screen-top">
+						<div class="width-100% text-center">
+							<h1>Bienvenido</h1>
+							<p class="sign-in-cont">Inicia sesión para continuar</p>
+						</div>
+
+						<form id="FrmLogin" action="@Url.Action("ValidarMovil","Registro")" method="post" class="sign-in-form mt-32">
+							<div class="form-sec">
+								<label class="txt-lbl">Usuario</label><br>
+								<input type="text" id="NickName"  placeholder="" asp-for="NikUsuario" class="txt-input form-control">
+								<div id="validacionNickName" class="invalid-feedback has-validation">
+                                        Campos Vacios
+                                    </div>
+								<div class="form_bottom_boder"></div>
+							</div>
+							<div class="form-sec mt-16">
+								<label class="txt-lbl">Contraseña</label><br>
+								<input type="password" id="password" asp-for="Contrasenia"  class="txt-input form-control">
+								<div id="validacionpassword" class="invalid-feedback has-validation">
+                                        Campos Vacios
+                                    </div>
+								<div class="form_bottom_boder"></div>
+							</div>
+							<div class="sign-up mt-32">
+								<button type="submit" class="btn-emisor">Ingresar</button>
+							</div>
+						</form>
+						<div class="row remember-sec">
+							<div class="col-6 d-flex">
+								<a class="forget-btn" style="color: #0CC084">Olvide mi Contraseña</a>
+							</div>
+						</div>
+						
+
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- SignIn Details  End -->
+	</div>
+	<script src="~/js/jquery-min-3.6.0.js"></script>
+	<script src="~/js/slick.min.js"></script>
+	<script src="~/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/custom.js"></script>
+	<script src="~/js/Login.js"></script>
+</body>
+</html>
+

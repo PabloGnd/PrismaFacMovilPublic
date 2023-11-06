@@ -1,0 +1,207 @@
+﻿@model List<Factura>
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor;
+@{
+	ViewData["Title"] = "FacturasEmitidas Page";
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BrookWood</title>
+	<link rel="icon" href="assets/images/favicon/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="~/css/all.min.css">
+	<link rel="stylesheet" href="~/css/slick.css">
+	<link rel="stylesheet" href="~/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/css/style.css">
+	<link rel="stylesheet" href="~/css/media-query.css">
+</head>
+<body>
+	<div class="site_content">
+		<!-- Preloader Start -->
+		<div class="loader-mask">
+			<div class="loader">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!-- Preloader End -->
+		<!-- Header Section Start -->
+		<header id="top-navbar" class="top-navbar">
+			<div class="container">
+				<div class="top-navbar_full">
+					<div class="back-btn d-flex align-items-center">
+						<a asp-controller="Registro" asp-action="Ingreso"><img src="/images/forget-password-screen/back-btn.svg" alt="back-btn-img"></a>
+					</div>
+					<div class="top-navbar-title d-flex align-items-center">
+						<p>FAQs</p>
+					</div>
+				</div>
+			</div>
+			<div class="navbar-boder"></div>
+		</header>
+		<!-- Header Section End -->
+		<!-- Faq Details Section Start -->
+		<section id="faq-sec">
+			<div class="container">
+				<div class="faq-full-sec mt-24">
+					<h1 class="d-none">Faq Page</h1>
+					<div class="accordion custom-acc" id="accordionPanelsStayOpenExample">
+						@foreach(var item in Model){
+							
+							<div class="accordion-item border-0 mt-24">
+							<h6 class="accordion-header">
+								<div class="row">
+										@if (item.Estado == "NO AUTORIZADO")
+										{
+											<div class="col-1"><input type="checkbox" class="form-check-input Fecha"></div>
+										}
+										else
+										{
+											<div class="col-1"><input type="checkbox" class="form-check-input Fecha" checked></div>
+										}
+									
+									<div class="col">
+										<button class="accordion-button custom_icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acordion_@item.IdFactura">
+											<span style="font-size: 12px;">Factura: @item.NumeroFactura</span> <span style="font-size: 14px;">Total: @item.Total</span>
+										</button>
+									</div>
+								</div>
+
+							</h6>
+								<div id="acordion_@item.IdFactura" class="accordion-collapse collapse">
+								<div class="accordion-body faq-answer">
+									<div class="text-center">
+										<h6 class="small" style="font-size: 10px;">#@item.NumeroAutorizacion </h6>
+									</div>
+									<br />
+									<div class="check-page-bottom mt-12">
+										<div class="check-page-bottom-deatails">
+											<div class="col">
+												<p>Cliente:</p>
+											</div>
+											<div class="col">
+												<p>@item.ApellidoCliente @item.NombreCliente </p>
+											</div>
+										</div>
+										<div class="check-page-bottom-deatails mt-12">
+											<div class="col">
+												<p>Fecha: </p>
+											</div>
+											<div class="col">
+												<p>@item.FechaAutorizacion</p>
+											</div>
+										</div>
+										<div class="check-page-bottom-deatails mt-12">
+											<div class="col">
+												<p style="color: #16128a;">Descuento: </p>
+											</div>
+											<div class="col">
+												<p class="" style="color: #16128a;">@item.TotalDescuento $</p>
+											</div>
+										</div>
+										<div class="check-page-bottom-deatails mt-12">
+											<div class="col">
+												<p>SubTotal:</p>
+											</div>
+											<div class="col">
+												<p class=""> @item.Subtotal $</p>
+											</div>
+										</div>
+
+										<div class="check-page-bottom-deatails mt-12">
+											<div class="col">
+												<p class="" style="color: #ED0006;">Iva:</p>
+											</div>
+											<div class="col">
+												<p class="" style="color: #ED0006;"> @item.ValorIva $</p>
+											</div>
+										</div>
+										<div class="checkoutpage-boder mt-12"></div>
+										<div class="check-page-bottom-deatails mt-12">
+											<div class="col">
+													<p class="col-black">Total:</p>
+											</div>
+											<div class="col">
+												<p class="col-black" > @item.Total $</p>
+											</div>
+										</div>
+
+									</div>
+									<br />
+										<a class="forget-btn producto"  name="@item.IdFactura" style="color: #25D366;">Detalles de factura</a>
+								</div>
+							</div>
+							<div class="faq-bottom-border"></div>
+
+						</div>
+						}
+					</div>
+				</div>
+			</div>
+			<div class="review-btn">
+				<a id="BuscarFacturas">Buscar facturas</a>
+			</div>
+		</section>
+		<!-- Faq Details Section End -->
+	</div>
+	<div class="modal fade" id="ModalProducto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Detalle factura</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="ProductoView">
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+<form id="FrmBuscarFactura" asp-action="ObtenerFacturas" asp-controller="Factura" method="post" class="row g-3 needs-validation">
+	<div class="offcanvas offcanvas-bottom addtohome-popup theme-offcanvas" tabindex="-1" id="offcanvas" aria-modal="true" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+		<button type="button" class="btn-close text-reset popup-close-home" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		<div class="offcanvas-body small">
+			<div class="partner-page-content-full text-center">
+				<h4 class="offcial-title-part-page">Buscar por:</h4>
+
+			</div>
+			
+				<div class="row border bg-light rounded">
+					<div class="col ">
+						<h6>Desde</h6>
+						<input type="datetime-local" id="ConsultaDesde"
+							   name="ConsultaDesde" value="2023-06-12" />
+					</div>
+					<div class="col ">
+						<h6>Hasta</h6>
+						<input type="datetime-local" id="ConsultaHasta"
+							   name="ConsultaHasta" value="2023-06-12" />
+					</div>
+				</div>
+
+			
+			
+			<div class="form-sec mt-16">
+				<button class="btn-emisor btn" type="submit" >Buscar</button>
+			</div>
+
+		</div>
+	</div>
+</form>
+	<script src="~/js/jquery-min-3.6.0.js"></script>
+	<script src="~/js/slick.min.js"></script>
+	<script src="~/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/custom.js"></script>
+	<script src="~/js/FacturasEmitidas.js"></script>
+</body>
+</html>
+

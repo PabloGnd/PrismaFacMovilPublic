@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="loader-mask">
+	<div class="loader">
+		<div></div>
+		<div></div>
+	</div>
+</div>
+<!-- Preloader End -->
+<!-- Header Section Start -->
+<header id="top-navbar" class="top-navbar">
+	<div class="container">
+		<div class="top-navbar_full">
+			
+			<div class="brookwood-txt d-flex align-items-center">
+				<p class="brookwood-txt">PrismaFac</p>
+			</div>
+		</div>
+	</div>
+	<div class="navbar-boder"></div>
+</header>
+<section id="partner-page">
+	<div class="progress-conten">
+		<div class="circular-progress">
+			<div>
+				<div class="row">
+					<center style="position: relative; font-size: 20px; font-weight: 600; color: #7d2ae8;">
+						Te quedan
+					</center>
+				</div>
+				<div class="row" >
+					<center class="progress-value">0</center>
+				</div>
+				<div class="row" >
+					<center style="position: relative; font-size: 20px; font-weight: 600; color: #7d2ae8;">facturas</center>
+				</div>
+				
+				
+				
+			</div>
+			
+		</div>
+	</div>
+	<div class="container">
+		<div style=" height: 40px; "></div>
+		<div class="row">
+			<div class="col divRecarga">
+				<p1 class="">Recarga:</p1>
+			</div>
+			<div id="Recarga" class=" col divRecarga ">
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col divRecarga">
+				<p1 class="">Consumo:</p1>
+			</div>
+			<div id="Consumo" class=" col divRecarga ">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col divRecarga">
+				<p1 class="">Saldo:</p1>
+			</div>
+			<div id="Saldo" class=" col divRecarga ">
+			</div>
+		</div>
+		<div style=" height: 20px; "></div>
+		<div class="row " >
+			<a asp-controller="Recarga" asp-action="NuevaRecarga" style="display: flex; justify-content: center; align-items: center; color:#339A76; text-decoration: underline;">Recarga Facturas aquí</a>
+		</div>
+	</div>
+</section>
+
+<!-- Header Section End -->
+
+

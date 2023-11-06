@@ -1,0 +1,127 @@
+﻿@model Emisor
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor;
+@{
+    ViewData["Title"] = "Registro Page";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrookWood</title>
+    <link rel="icon" href="assets/images/favicon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/media-query.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="site_content">
+        <!-- Preloader Start -->
+        <div class="loader-mask">
+            <div class="loader">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+        <!-- Header Section Start -->
+        <header id="top-navbar" class="top-navbar">
+            <div class="container">
+                <div class="top-navbar_full">
+                    
+                        <div class="back-btn">
+                        <a asp-controller="Registro" asp-action="Registro" class="nav-link btn-prev">
+                                <img src="/images/forget-password-screen/back-btn.svg" alt="back-btn-img">
+                            </a>
+                        </div>
+                        <div class="top-navbar-title">
+                            <p>Continuemos</p>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="navbar-boder"></div>
+        </header>
+        <!-- Header Section End -->
+        <!-- About Us Details Section Start -->
+
+        <div class="progressbar">
+
+            <div class="progress" id="progress"></div>
+
+            <div class="progress-step progress-step-active" data-title="Paso"></div>
+            <div class="progress-step progress-step-active" data-title="Paso"></div>
+            <div class="progress-step" data-title="Paso"></div>
+        </div>
+        <p class="sign-in-cont text-center">Ingresa los datos de tu principal punto de venta</p>
+
+        <div class="form-step form-step-active ">
+            <section id="sign-up-screen">
+                <div class="container">
+                    <div class="sign-in-screen_full">
+                        <div class="sign-in-screen-top">
+
+                            <form class="sign-in-form mt-32" id="FrmEstablecimiento" asp-action="GuardarEstableciemintoSucursal" asp-controller="Registro" method="post">
+                                <div class="form-sec">
+                                    <label class="txt-lbl">Código establecimiento</label><br>
+                                    <input type="number" id="CodigoEstablecimiento" class="txt-input CodigoEstablecimiento" name="CodigoEstablecimiento">
+                                    <div id="validacionCodigoEstablecimiento" class="invalid-feedback has-validation">
+                                        Campos Vacios
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="form-sec mt-16">
+                                    <label class="txt-lbl">Nombre establecimiento</label><br>
+                                    <input type="text" id="NombreEstablecimiento" class="txt-input NombreEstablecimiento" name="Descripcion" onkeyup="mayus(this);">
+                                    <div id="validacionNombreEstablecimiento" class="invalid-feedback has-validation">
+                                        Campos Vacios
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="form-sec mt-16">
+                                    <label class="txt-lbl">Código sucursal</label><br>
+                                    <input type="number" id="CodigoSucursal" name="CodigoSucursal"
+                                           class="txt-input CodigoSucursal">
+                                    <div id="validacionCodigoSucursal" class="invalid-feedback has-validation">
+                                        Campos Vacios
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="sign-up mt-32">
+                                    <button class="btn-emisor" type="submit" id="btn-next1">Siguiente</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </div>
+    <!-- About Us Details Section End -->
+
+    <script src="~/js/jquery-min-3.6.0.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/RegistroEstablecimiento.js"></script>
+    <script src="~/js/General.js"></script>
+</body>
+
+</html>

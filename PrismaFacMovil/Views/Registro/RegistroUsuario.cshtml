@@ -1,0 +1,145 @@
+﻿@model Emisor
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor;
+@{
+    ViewData["Title"] = "Registro Page";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrookWood</title>
+    <link rel="icon" href="assets/images/favicon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/media-query.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="site_content">
+        <!-- Preloader Start -->
+        <div class="loader-mask">
+            <div class="loader">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+        <!-- Header Section Start -->
+        <header id="top-navbar" class="top-navbar">
+            <div class="container">
+                <div class="top-navbar_full">
+                   
+                        <div class="back-btn">
+                        <a asp-controller="Registro" asp-action="RegistroEstablecimiento" class="nav-link btn-prev">
+                                <img src="/images/forget-password-screen/back-btn.svg" alt="back-btn-img">
+                            </a>
+                        </div>
+                        <div class="top-navbar-title">
+                            <p>Ya falta poco</p>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="navbar-boder"></div>
+        </header>
+        <!-- Header Section End -->
+        <!-- About Us Details Section Start -->
+
+        <div class="progressbar">
+
+            <div class="progress" id="progress"></div>
+
+            <div class="progress-step progress-step-active" data-title="Paso"></div>
+            <div class="progress-step progress-step-active" data-title="Paso"></div>
+            <div class="progress-step progress-step-active" data-title="Paso"></div>
+        </div>
+        <p class="sign-in-cont text-center">Ingresa los datos de inicio de sesion</p>
+
+        <div class="form-step form-step-active ">
+            <section id="sign-up-screen">
+                <div class="container">
+                    <div class="sign-in-screen_full">
+                        <div class="sign-in-screen-top">
+
+                            <form class="sign-in-form mt-32" id="FrmUsuario" asp-action="GuardarUsuario" asp-controller="Registro" method="post">
+                                <div class="form-sec">
+                                    <label class="txt-lbl">Correo</label><br>
+                                    <input type="text" id="Correo" name="Correo" class="txt-input Correo">
+                                    <div id="validacionCorreo" class="invalid-feedback has-validation">
+                                        Formato de correo incorrecto
+                                    </div>
+                                    <div id="validacionCorreoVacio" class="invalid-feedback has-validation">
+                                        Campo vacio
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="form-sec mt-16">
+                                    <label class="txt-lbl">Usuario</label><br>
+                                    <input type="text" id="Usuario" name="NikUsuario" class="txt-input Usuario" onkeyup="mayus(this);">
+                                    <div id="validacionUsuario" class="invalid-feedback has-validation">
+                                        Campo Vacio
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="form-sec mt-16">
+                                    <label class="txt-lbl">Contraceña</label><br>
+                                    <input type="password" id="Contrasena" name="Contrasena"
+                                           class="txt-input Contrasena">
+                                    <div id="validacionContracena" class="invalid-feedback has-validation">
+                                        Debe haber mayusculas y numeros
+                                    </div>
+                                    <div id="validacionContracenaVacia" class="invalid-feedback has-validation">
+                                        Campo vacio
+                                    </div>
+                                    <div id="validacionContracenaCaracteres" class="invalid-feedback has-validation">
+                                        Debe tener mas de 8 caracteres
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="form-sec mt-16">
+                                    <label class="txt-lbl">Confirmar Contraceña</label><br>
+                                    <input type="password" id="ConfirmarContracena" 
+                                           class="txt-input ConfirmarContracena">
+                                    <div id="validacionConfirmarContracena" class="invalid-feedback has-validation">
+                                        Contraceñas no coinciden 
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="sign-up mt-32">
+                                    <button class="btn-emisor" type="submit" id="">Finalizar</button>
+                                </div>
+                            </form>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+       
+    </div>
+    <!-- About Us Details Section End -->
+
+    <script src="~/js/jquery-min-3.6.0.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/RegistroUsuario.js"></script>
+</body>
+
+</html>

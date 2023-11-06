@@ -1,0 +1,254 @@
+﻿@model FacturaViewcs
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor objAccesor
+@{
+    ViewData["Title"] = "Nuevo Producto";
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrookWood</title>
+    <link rel="icon" href="assets/images/favicon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/media-query.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+</head>
+<body>
+    <div class="site_content">
+        <!-- Preloader Start -->
+        <div class="loader-mask">
+            <div class="loader">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+        <!-- Header Section Start -->
+        <header id="top-navbar" class="top-navbar">
+            <div class="container">
+                <div class="top-navbar_full">
+                    <div class="back-btn">
+                        <a asp-controller="Registro" asp-action="Ingreso" class="nav-link btn-prev">
+                            <img src="/images/forget-password-screen/back-btn.svg" alt="back-btn-img">
+                        </a>
+                    </div>
+                    <div class="top-navbar-title d-flex align-items-center">
+                        <p>Recargas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-boder"></div>
+        </header>
+        <!-- Header Section End -->
+        <!-- Checkout page Section Start -->
+        <section id="checkout-page">
+            <div class="checkout-page-increment-sec-full mt-24">
+                <div class="container">
+                    <div class="row">
+                        <p style=" font-weight: bold; font-size: 40px; color:#ffc107; display: flex; justify-content: center; align-items: center; ">Rápido y Seguro!</p>
+                    </div>
+                    <div class="row">
+                        <center style=" font-size: 15px; color:#339A76; display: flex; justify-content: center; align-items: center;">Estamos trabajando en nuevos métodos de pago para brindarte la mejor experiencia</center>
+                    </div>
+                    <div class="row divRecarga">
+                        <a id="PopupRecarga" style="display: flex; justify-content: center; align-items: center; color:darkgray">Cómo recargar?</a>
+                    </div>
+                    <div class="faq-bottom-border"></div>
+
+                    <div class="check-page-top-content mt-16">
+                        <div class="accordion-item border-0 mt-24">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button custom_icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordian">
+                                    <span>Banco Pichincha</span>
+                                </button>
+                            </h2>
+                            <div id="accordian" class="accordion-collapse collapse">
+                                <div class="accordion-body faq-answer">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Nombre Titular</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>Betsy Calderon</p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Numero de cedula</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>1003654789</p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Tipo de cuenta</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>Ahorros</p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Numero de cuenta</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>22365478</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="checkoutpage-boder mt-16"></div>
+                    </div>
+
+                    <div class="check-page-top-content mt-16">
+                        <div class="accordion-item border-0 mt-24">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button custom_icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordian2">
+                                    <span>Produbanco</span>
+                                </button>
+                            </h2>
+                            <div id="accordian2" class="accordion-collapse collapse">
+                                <div class="accordion-body faq-answer">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Nombre Titular</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>Betsy Calderon</p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Numero de cedula</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>1003654789</p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Tipo de cuenta</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>Ahorros</p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Numero de cuenta</p>
+                                            </div>
+                                            <div class="col">
+                                                <p>22365478</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="checkoutpage-boder mt-16"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <form class="sign-in-form mt-32" id="FrmNuevaRecarga" asp-action="GuardarCambios" asp-controller="Cliente" method="post" enctype="multipart/form-data">
+                <div class="checkoutpage-fifth-sec mt-24">
+                    <div class="container">
+                        <div class="checkoutpage-price-sec">
+                            <div class="checkoutpage-price-sec-full">
+                                <div class="form-sec">
+                                    <label class="txt-lbl">Valor</label><br>
+                                    <input type="number" id="Valor" class="txt-input Valor" name="Valor">
+                                    <div id="validacionValor" class="invalid-feedback has-validation">
+                                        Campo vacio
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                                <div class="form-sec mt-16">
+                                    <label class="txt-lbl">Número comprobante</label><br>
+                                    <input type="number" id="NumeroComprobante" class="txt-input NumeroComprobante" name="NumeroComprobante">
+                                    <div id="validacionNumeroComprobante" class="invalid-feedback has-validation">
+                                        Campo Vacio
+                                    </div>
+                                    <div class="form_bottom_boder"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buy-now-btn mt-24">
+                    <a id="NuevaRecarga" class="checkout-1">Recargar</a>
+                    <a id="NuevaRecarga" class="checkout-2">Recargar</a>
+                </div>
+            </form>
+        </section>
+
+    </div>
+
+    <div class="offcanvas offcanvas-bottom addtohome-popup theme-offcanvas" tabindex="-1" id="offcanvas" aria-modal="true" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+        <button type="button" class="btn-close text-reset popup-close-home" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-body small">
+            <div class="partner-page-content-full text-center">
+                <p style="font-size: 23px; color:#ffc107;">En 2 simples pasos recarga el saldo que necesites desde 1$</p>
+
+            </div>
+            <div class="select-lang-sec mt-32">
+                <p style=" font-size: 17px; color:#339A76;">Transfiere el valor de la recarga a las cuentas de banco Pichincha o Produbanco</p>
+            </div>
+            <div>
+                <p style=" font-size: 17px; color:#339A76;"> Ingresa el valor de la recarga y el número de comprobante</p>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script src="~/js/jquery-min-3.6.0.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/Recarga.js"></script>
+</body>
+</html>
